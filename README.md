@@ -20,17 +20,14 @@ A discord bot used to interact with the Riot Games API to provide live stats, su
 ```
 pip install -U discord.py
 pip install riotwatcher
+pip install python-dotenv
 ```
-- In the code you will want to change line 5 and 6 with your tokens that you recieved in the discord and riot games developer portal
-```
-DISCORD_TOKEN = 'MY_BOT_TOKEN'
-RIOT_GAMES_TOKEN = 'MY_API_KEY'
-```
-```diff
-- IN A PRODUCTION ENVIRONMENT NEVER STORE ACTUAL TOKEN/API KEYS IN THIS FILE -
-```
+- Create a new file called '.env' to store your environment variables (API KEYS, TOKENS, etc...)
 
-## Final Steps
+### Database setup
+- In this project I am connecting to a MongoDB database using MongoDB Atlas
+
+### Final Steps
 - Go to the discord devloper portal and create a redirect using the ***OAuth2 URL Generator***
 - After that using this link you can add this bot to a server you currently manage or create a new one for testing purposes
 - Run your .py file and you have now created your own discord bot.
