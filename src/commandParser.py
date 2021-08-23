@@ -1,10 +1,13 @@
 from riotAPI_Handler import *
+from databaseHandler import *
 
-def readCommand(command):
+def readCommand(command, user, DB_Client):
     
     #!rank command
     if(command.startswith("!rank")):
         return(initRankCommand(command))
+    elif(command.startswith("!profile")):
+        return(initProfileCommand(command, user, DB_Client))
 
 def initRankCommand(msg):
 
@@ -26,3 +29,17 @@ def initRankCommand(msg):
         # .. If not found tell user their name isnt assigned to a summoner name
         # .. Or they are unranked
         return 'ERROR'
+
+def initProfileCommand(msg, user, DB_Client):
+
+    #set user as string
+    user = str(user)
+
+    if(msg.startswith("!profile -set")):
+        #strip out command text
+        returnMSG = msg.lstrip("!profile -set")
+        #add account to database
+        return addSummonerToUser(returnMSG, user, DB_Client)
+
+
+    
